@@ -12,16 +12,17 @@ export default {
     attention_light: 'rgba(232, 63, 91, 0.5)',
 
     shape: '#FFFFFF',
+    
     title: '#363F5F',
     text: '#969CB2',
-    background: '#F0F2F5',
+    text_dark: '#000000',
 
-    shadow: 'rgba(0,0,0,0.4)',
+    background: '#F0F2F5',
   },
 
   fonts: {
-    text_400: 'Poppins_400Regular',
-    text_500: 'Poppins_500Medium',
-    text_700: 'Poppins_700Bold',
+    regular: 'Poppins-Regular',
+    medium: 'Poppins-Medium',
+    bold: 'Poppins-Bold',
   },
 };

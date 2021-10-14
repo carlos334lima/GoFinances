@@ -6,24 +6,24 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import { useFocusEffect } from "@react-navigation/native";
 import { getBottomSpace } from "react-native-iphone-x-helper";
-
 import Feather from "react-native-vector-icons/Feather";
+
+//@components
+import { HighlightCard } from "../../components/HighlightCard";
 
 //@styles
 import {
   Container,
   Header,
-  HeaderTop,
   User,
   Photo,
-  UserGretting,
   UserName,
-  Logout,
   Icon,
   UserInfo,
-  Cards,
-  Content,
-  Title,
+  HighlightCards,
+  UserWrapper,
+  UserGreeting,
+  LogoutButton,
 } from "./styles";
 
 interface MovimentProps {
@@ -39,24 +39,33 @@ export function Dashboard() {
   return (
     <Container>
       <Header>
-        <HeaderTop>
+        <UserWrapper>
           <UserInfo>
             <Photo
               source={{
-                uri: "https://avatars.githubusercontent.com/u/68131444?v=4",
+                uri: "https://media-exp1.licdn.com/dms/image/C4D03AQGdsxhEcqVvIA/profile-displayphoto-shrink_800_800/0/1600975624270?e=1639612800&v=beta&t=AmaEsQHRPEHvO1IsTjJ7xHFYynhiwh4DkNNngb7zEM4",
               }}
             />
             <User>
-              <UserGretting>Olá, </UserGretting>
+              <UserGreeting>Olá,</UserGreeting>
               <UserName>Carlos</UserName>
             </User>
           </UserInfo>
 
-          <Logout>
+          <LogoutButton onPress={() => {}}>
             <Icon name="power" />
-          </Logout>
-        </HeaderTop>
+          </LogoutButton>
+        </UserWrapper>
       </Header>
+
+      <HighlightCards>
+        <HighlightCard
+          type="up"
+          title="Entradas"
+          amount={String(3000)}
+          lastTransaction="Última entrada em 13 de abril"
+        />
+      </HighlightCards>
     </Container>
   );
 }

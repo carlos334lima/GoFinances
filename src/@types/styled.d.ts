@@ -17,15 +17,15 @@ declare module 'styled-components' {
       shape: string;
       title: string;
       text: string;
-      background: string;
+      text_dark: string;
 
-      shadow: string;
+      background: string,
     };
 
     fonts: {
-      text_400: string;
-      text_500: string;
-      text_700: string;
+      regular: string;
+      medium: string;
+      bold: string;
     };
   }
 }
