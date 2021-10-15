@@ -60,7 +60,7 @@ export function Dashboard() {
 
       <HighlightCards>
         <HighlightCard
-          type="up"
+          type="down"
           title="Entradas"
           amount={String(3000)}
           lastTransaction="Última entrada em 13 de abril"
