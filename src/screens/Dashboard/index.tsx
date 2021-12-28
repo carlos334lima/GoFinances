@@ -24,16 +24,54 @@ import {
   UserWrapper,
   UserGreeting,
   LogoutButton,
+  Transactions,
+  Title,
+  TransactionList,
 } from "./styles";
+import {
+  TransactionCard,
+  TransactionCardProps,
+} from "../../components/TransactionCard";
 
-interface MovimentProps {
+export interface DataListProps extends TransactionCardProps {
   id: string;
-  name: string;
-  amount: string;
-  type: string;
-  category: CategoryProps;
-  date: Date;
 }
+
+interface HighlightProps {
+  amount: string;
+  lastTransaction: string;
+}
+
+interface HighlightData {
+  entries: HighlightProps;
+  expensives: HighlightProps;
+  total: HighlightProps;
+}
+
+const data = [
+  {
+    id: 1,
+    name: "Desenvolvimento de Site",
+    type: "positive",
+    amount: "2000",
+    category: {
+      name: "Compras",
+      icon: "dollar-sign"
+    },
+    date: "12/04/2002",
+  },
+  {
+    id: 2,
+    name: "Desenvolvimento de Site",
+    type: "negative",
+    amount: "2000",
+    category:  {
+      name: "Salário",
+      icon: "dollar-sign"
+    },
+    date: "12/04/2002",
+  },
+];
 
 export function Dashboard() {
   return (
@@ -60,12 +98,33 @@ export function Dashboard() {
 
       <HighlightCards>
         <HighlightCard
-          type="down"
+          type="up"
           title="Entradas"
           amount={String(3000)}
           lastTransaction="Última entrada em 13 de abril"
         />
+        <HighlightCard
+          type="down"
+          title="Saída"
+          amount={String(3000)}
+          lastTransaction="Última entrada em 13 de abril"
+        />
+        <HighlightCard
+          type="total"
+          title="Total"
+          amount={String(3000)}
+          lastTransaction="Última entrada em 13 de abril"
+        />
       </HighlightCards>
+
+      <Transactions>
+        <Title>Listagem</Title>
+        <TransactionList
+          data={data}
+          keyExtractor={(item) => String(item.id)}
+          renderItem={({ item }) => <TransactionCard data={item} />}
+        />
+      </Transactions>
     </Container>
   );
 }
