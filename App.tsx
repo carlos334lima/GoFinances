@@ -7,6 +7,7 @@ import { ThemeProvider } from "styled-components";
 //@utils
 //import AppProvider from './src/hooks';
 import { Dashboard } from "./src/screens/Dashboard";
+import { Register } from "./src/screens/Register";
 
 //@styles
 import theme from "./src/styles/theme";
@@ -16,7 +17,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar barStyle="light-content" />
-      <Dashboard />
+      <Register />
     </ThemeProvider>
   );
 }

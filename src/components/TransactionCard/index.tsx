@@ -1,7 +1,9 @@
 import React from "react";
 
+//@utils
 import { categories } from "../../utils/categories";
 
+//@styles
 import {
   Container,
   Title,
@@ -29,7 +31,9 @@ interface Props {
 }
 
 export function TransactionCard({ data }: Props) {
-  const [category] = categories.filter((item) => item.key === data.category.name);
+  const [category] = categories.filter(
+    (item) => item.key === data.category.name
+  );
 
   console.log("category", category);
 
