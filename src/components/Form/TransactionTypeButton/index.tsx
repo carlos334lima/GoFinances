@@ -23,15 +23,12 @@ export function TransactionTypeButton({
   isActive,
   ...rest
 }: Props) {
-  useEffect(() => {
-    console.log("Button-type", type);
-    console.log("Button-isActive", isActive);
-  }, [type, isActive]);
+  
   return (
     <Container isActive={isActive} type={type}>
       <Button {...rest}>
         <Icon name={icons[type]} type={type} />
-        <Title>{title}</Title>
+        <Title isActive={isActive}>{title}</Title>
       </Button>
     </Container>
   );

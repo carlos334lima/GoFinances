@@ -20,11 +20,11 @@ export function InputForm({ control, name, error, ...rest }: Props) {
   return (
     <Container>
       <Controller
+        name={name}
         control={control}
         render={({ field: { onChange, value } }) => (
           <Input onChangeText={onChange} value={value} {...rest} />
         )}
-        name={name}
       />
       {error && <Error>{error}</Error>}
     </Container>

@@ -9,8 +9,8 @@ interface IconProps {
 }
 
 interface ContainerProps {
-  isActive: boolean;
-  type: "up" | "down";
+  isActive?: boolean;
+  type?: "up" | "down";
 }
 
 export const Container = styled.View<ContainerProps>`
@@ -47,7 +47,9 @@ export const Icon = styled(Feather)<IconProps>`
     type === "up" ? theme.colors.success : theme.colors.attention};
 `;
 
-export const Title = styled.Text`
-  font-family: ${({ theme }) => theme.fonts.regular};
+export const Title = styled.Text<ContainerProps>`
   font-size: ${RFValue(14)}px;
+  color: ${({ isActive, theme }) =>
+    isActive ? theme.colors.shape : theme.colors.text_dark};
+  font-family: ${({ theme }) => theme.fonts.regular};
 `;
