@@ -20,8 +20,8 @@ export interface TransactionCardProps {
   name: string;
   amount: string;
   category: {
-    name: string;
-    icon: string;
+    name?: string;
+    icon?: string;
   };
   date: string;
 }
@@ -31,24 +31,20 @@ interface Props {
 }
 
 export function TransactionCard({ data }: Props) {
-  const [category] = categories.filter(
-    (item) => item.key === data.category.name
-  );
-
-  console.log("category", category);
+  const [category] = categories.filter((item) => item.key === data.category);
 
   return (
     <Container>
       <Title>{data?.name}</Title>
 
       <Amount type={data?.type}>
-        R$ {data?.type !== "positive" ? `- ${data?.amount}` : data?.amount}
+        {data?.type !== "positive" ? `- ${data?.amount}` : data?.amount}
       </Amount>
 
       <Footer>
         <Category>
-          <Icon name={data?.category?.icon} />
-          <CategoryName>{data?.category?.name}</CategoryName>
+          <Icon name={category?.icon} />
+          <CategoryName>{category?.name}</CategoryName>
         </Category>
 
         <Date>{data?.date}</Date>

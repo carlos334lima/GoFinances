@@ -52,7 +52,7 @@ export function Register() {
     resolver: yupResolver(schema),
   });
 
-  //const navigation = useNavigation();
+  const navigation = useNavigation();
 
   const [transactionType, setTransactionType] = useState("");
   const [categoryModalOpen, setCategoryModalOpen] = useState(false);
@@ -80,6 +80,7 @@ export function Register() {
     try {
       const dataKey = "@gofinances:transactions";
 
+
       const data = await AsyncStorage.getItem(dataKey);
       const currentData = data ? JSON.parse(data) : [];
 
@@ -87,9 +88,12 @@ export function Register() {
 
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted));
 
-      ShowMessage("Salvo com sucesso!", "success");
-
-      //navigation.navigate('Listagem');
+      navigation.navigate("Listagem", {
+        id: newTransaction.id,
+      });
+      setTimeout(() => {
+        ShowMessage("Salvo com sucesso!", "success");
+      }, 2000);
     } catch (error) {
       ShowMessage("Não foi possível salvar!", "danger");
     } finally {

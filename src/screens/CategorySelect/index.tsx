@@ -64,7 +64,6 @@ export function CategorySelect({
         style={{ flex: 1, width: "100%" }}
         keyExtractor={(item) => item.key}
         renderItem={({ item }) => {
-          console.log("item@", category.key);
           return (
             <Category
               onPress={() => handleCategorySelect(item)}

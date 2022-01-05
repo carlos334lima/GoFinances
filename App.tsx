@@ -3,6 +3,7 @@ import { StatusBar } from "react-native";
 
 //@libraries
 import { ThemeProvider } from "styled-components";
+import { Routes } from "./src/routes";
 
 //@utils
 //import AppProvider from './src/hooks';
@@ -17,7 +18,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar barStyle="light-content" />
-      <Register />
+      <Routes />
     </ThemeProvider>
   );
 }

@@ -54,7 +54,11 @@ export const Amount = styled.Text<TypeProps>`
   font-family: ${({ theme }) => theme.fonts.medium};
   font-size: ${RFValue(32)}px;
   color: ${({ theme, type }) =>
-    type === "total" ? theme.colors.shape : theme.colors.secondary};
+    type === "total"
+      ? theme.colors.shape
+      : type === "up"
+      ? theme.colors.success
+      : type === "down" && theme.colors.attention};
   margin-top: 38px;
 `;
 

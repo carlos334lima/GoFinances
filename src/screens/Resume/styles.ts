@@ -23,7 +23,9 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.shape};
 `;
 
-export const Content = styled.ScrollView``;
+export const Content = styled.ScrollView`
+  margin: 10px;
+`;
 
 export const ChartContainer = styled.View`
   width: 100%;
