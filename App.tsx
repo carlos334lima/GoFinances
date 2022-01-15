@@ -9,6 +9,7 @@ import { Routes } from "./src/routes";
 //import AppProvider from './src/hooks';
 import { Dashboard } from "./src/screens/Dashboard";
 import { Register } from "./src/screens/Register";
+import { SignIn } from "./src/screens/SignIn";
 
 //@styles
 import theme from "./src/styles/theme";
@@ -18,7 +19,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar barStyle="light-content" />
-      <Routes />
+      <SignIn />
     </ThemeProvider>
   );
 }
