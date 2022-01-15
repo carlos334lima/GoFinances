@@ -1,4 +1,5 @@
 //@libraries
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import {
   AccessToken,
@@ -17,14 +18,17 @@ export const handleSignInWithGoogle = async () => {
   try {
     await GoogleSignin.hasPlayServices();
     const data = await GoogleSignin.signIn();
-    console.log("@data", data);
+    const user = data.user;
+    const key = '@gofinances/user'
+
+    await AsyncStorage.setItem(key, JSON.stringify(user))
   } catch (error) {
     console.log("Error", error);
   }
 };
 
 export const handleSignInFb = () => {
-  LoginManager.logInWithPermissions(["public_profile"]).then((result) => {
+  LoginManager.logInWithPermissions(["email", "public_profile", "user_friends"]).then((result) => {
     if (!result.isCancelled) {
       AccessToken.getCurrentAccessToken().then((data) => {
         const responseInfoCallback = (

@@ -3,6 +3,7 @@ import { StatusBar } from "react-native";
 
 //@libraries
 import { ThemeProvider } from "styled-components";
+import { AppProvider } from "./src/hooks";
 import { Routes } from "./src/routes";
 
 //@utils
@@ -18,8 +19,10 @@ import theme from "./src/styles/theme";
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
+      <AppProvider>
       <StatusBar barStyle="light-content" />
-      <SignIn />
+      <Routes />
+      </AppProvider>
     </ThemeProvider>
   );
 }

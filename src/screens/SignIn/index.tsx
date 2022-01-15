@@ -1,3 +1,4 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useEffect } from "react";
 
 //@libraries
@@ -17,6 +18,7 @@ import {
   handleSignInFb,
   handleSignInWithGoogle,
 } from "../../utils/SocialMidia";
+import { loadUser } from "../../utils/Storage";
 
 //@styles
 import {
@@ -31,9 +33,9 @@ import {
 
 
 export function SignIn() {
-  useEffect(() => {
-    configureSignInGoogle();
-  }, []);
+  
+
+  
 
   return (
     <Container>
@@ -62,11 +64,11 @@ export function SignIn() {
             onPress={handleSignInWithGoogle}
           />
 
-          <SignInSocialButton
+         {/*  <SignInSocialButton
             title="Entrar com Facebook"
             svg={AppleSvg}
             onPress={handleSignInFb}
-          />
+          /> */}
         </FooterWrapper>
       </Footer>
     </Container>
